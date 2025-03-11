@@ -7,9 +7,6 @@ In this project, I will work on the effect of temperature on battery efficiency 
 ## Table of Contents
 - [Motivation](#motivation)
 - [Data Sources](#data-sources)
-- [Data Analysis](#data-analysis)
-- [Expected Findings](#expected-findings)
-- [Limitations and Future Work](#limitations-and-future-work)
 
 ---
 
@@ -66,25 +63,6 @@ cycle: Top level structure array containing the charge, discharge and impedance 
 
 ### 2)  **Battery Data Set Provided by CALCE:**
 
-To enrich the analysis, additional scientifically credible data from the Battery Materials Property Database, published by reputable sources such as *Scientific Data* and the Center for Advanced Life Cycle Engineering (CALCE), will be integrated. These supplementary datasets include extensive data on various Li-ion battery chemistries and properties, including internal resistance, energy density, voltage profiles, coulombic efficiency, and degradation rates. The combination of these two credible datasets will allow for deeper, more insightful analyses into how battery chemistry and temperature jointly influence battery performance and RUL.
+I plan to integrate the data set provided by the Center for Advanced Life Cycle Engineering (CALCE) to the analysis. This data set consists of lithium-ion battery chemistry data including internal resistance, energy density, degradation rates, etc. that may be integrated to the main data set to improve the accuracy of the analysis of the battery performance.
 
-Moreover, additional derived supplementary indicators, such as temperature gradients during charging/discharging cycles, impedance evolution, rate of voltage drop, and cumulative capacity loss, will also be computed from these data to enrich the analysis further.
-
-## Data Analysis
-The data analysis process will follow a structured pipeline, beginning with thorough exploratory data analysis (EDA). Initially, statistical techniques and visualizations will identify meaningful trends, relationships, and anomalies within the combined datasets. Correlation and regression analysis will establish baseline relationships between temperature, chemical properties, and battery performance parameters.
-
-Subsequently, advanced machine learning methodologies—including regression models, random forest algorithms, gradient boosting models, and support vector regression—will be employed to model and predict battery efficiency and remaining useful life. Feature engineering will be used to derive supplementary indicators, such as average charge/discharge temperatures, internal impedance variation across battery life cycles, temperature gradients, capacity fade rates, and overall battery aging indicators. These indicators will provide deeper predictive insights into the degradation mechanisms of Li-ion batteries.
-
-Cross-validation methods will ensure model robustness, accuracy, and generalizability. The final predictive models will be evaluated based on their accuracy in predicting RUL and battery efficiency across varying temperature conditions and chemical characteristics.
-
-## Expected Findings
-The anticipated findings of this project will deliver detailed and quantitatively supported insights regarding the relationships between temperature, battery chemistry, and battery efficiency metrics. Specifically, it is expected that the analysis will clarify how variations in ambient temperature influence battery degradation (capacity fading and impedance increase) and lifespan, with chemical properties acting as significant moderators.
-
-Additionally, this project aims to produce reliable predictive models that can estimate remaining useful life (RUL) and battery efficiency under different temperature conditions and battery chemistries. These insights and models could directly assist battery manufacturers and system designers in optimizing battery systems, prolonging battery life, enhancing reliability, and reducing both economic and environmental impacts.
-
-## Limitations and Future Work
-Despite the comprehensive nature of the datasets utilized, certain limitations exist. The primary data from NASA was collected in controlled laboratory environments, potentially limiting the applicability of the predictive insights to real-world scenarios where environmental conditions are more dynamic and unpredictable. Another limitation lies in potential differences between laboratory battery conditions and real-life battery usage patterns, such as fluctuating loads and irregular charge cycles.
-
-Future extensions of this research may include integrating datasets from real-world scenarios or field experiments (e.g., batteries from electric vehicles or renewable energy storage systems). Moreover, further studies could explore emerging battery chemistries (like lithium-sulfur or solid-state batteries) under extreme operating conditions, thus significantly extending the project's applicability and relevance to future battery technology advancements.
-
----  
+In addition to these two data sets, supplementary indicators will be derived from the existing data such as impedance evolution, rate of voltage drop, cumulative capacity loss, and many others that may enrich the analysis further.
