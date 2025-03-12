@@ -7,6 +7,8 @@ In this project, I will work on the effect of temperature on battery efficiency 
 ## Table of Contents
 - [Motivation](#motivation)
 - [Data Sources](#data-sources)
+- [Hypotheses](#hypotheses)
+- [Data Analysis Techniques and Stages](#data-analysis-techniques-and-stages)
 
 ---
 
@@ -66,3 +68,23 @@ cycle: Top level structure array containing the charge, discharge and impedance 
 I plan to integrate the data set provided by the Center for Advanced Life Cycle Engineering (CALCE) to the analysis. This data set consists of lithium-ion battery chemistry data including internal resistance, energy density, degradation rates, etc. that may be integrated to the main data set to improve the accuracy of the analysis of the battery performance.
 
 In addition to these two data sets, supplementary indicators will be derived from the existing data such as impedance evolution, rate of voltage drop, cumulative capacity loss, and many others that may enrich the analysis further.
+
+---
+
+## Hypotheses
+
+In order to define the project's research framework, the following null and alternative hypotheses will be tested statistically:
+
+- **Null Hypothesis (H₀)**: Temperature has no statistically significant effect on the efficiency and remaining useful life of lithium-ion batteries.
+
+- **Alternative Hypothesis (H₁)**: Temperature has a statistically significant effect on the efficiency and remaining useful life of lithium-ion batteries.
+
+Testing these hypotheses will be the main objective of the analysis phase, with the aim of accepting or rejecting them based on quantitative data analysis and predictive modeling.
+
+---
+
+## Data Analysis Techniques and Stages
+
+The data analysis process will begin with exploratory data analysis (EDA). Initially, statistical techniques and visualizations will identify trends and relationships within the combined datasets. With correlation and regression analysis, relationships between temperature, and battery performance parameters will be established. Subsequently, advanced machine learning methodologies such as regression models, random forest algorithms, and support vector regression will be employed to model and predict battery efficiency and remaining useful life. To derive the already stated supplementary indicators, feature engineering will be used.
+
+The final predictive models will be evaluated based on their accuracy in predicting the remaining useful life and battery efficiency across varying temperature conditions and chemical characteristics.
