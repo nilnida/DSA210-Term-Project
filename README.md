@@ -63,9 +63,9 @@ cycle: Top level structure array containing the charge, discharge and impedance 
       Rct: Estimated charge transfer resistance (Ohms)
 ```
 
-### 2)  **Battery Data Set Provided by CALCE:**
+### 2)  **Battery Data Set Provided by The Hawaii Natural Energy Institute:**
 
-I plan to integrate the data set provided by the Center for Advanced Life Cycle Engineering (CALCE) to the analysis. This data set consists of lithium-ion battery chemistry data including internal resistance, energy density, degradation rates, etc. that may be integrated to the main data set to improve the accuracy of the analysis of the battery performance.
+I plan to integrate the data set provided by the The Hawaii Natural Energy Institute to the analysis. This data set consists of comprehensive lithium-ion battery data, including parameters such as internal resistance, energy density, and degradation rates that may be integrated to the main data set to improve the accuracy of the analysis of the remaining useful life of batteries.
 
 In addition to these two data sets, supplementary indicators will be derived from the existing data such as impedance evolution, rate of voltage drop, cumulative capacity loss, and many others that may enrich the analysis further.
 
@@ -75,9 +75,9 @@ In addition to these two data sets, supplementary indicators will be derived fro
 
 In order to define the project's research framework, the following null and alternative hypotheses will be tested statistically:
 
-- **Null Hypothesis (H₀)**: Temperature has no statistically significant effect on the efficiency and remaining useful life of lithium-ion batteries.
+- **Null Hypothesis (H₀)**: Temperature has no relation with the efficiency and remaining useful life of lithium-ion batteries.
 
-- **Alternative Hypothesis (H₁)**: Temperature has a statistically significant effect on the efficiency and remaining useful life of lithium-ion batteries.
+- **Alternative Hypothesis (H₁)**: Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
 
 Testing these hypotheses will be the main objective of the analysis phase, with the aim of accepting or rejecting them based on quantitative data analysis and predictive modeling.
 
