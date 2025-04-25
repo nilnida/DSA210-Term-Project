@@ -189,7 +189,7 @@ Since in the data, there exists two metrics that shows the battery efficiency, t
 
 #### a. Relation of Discharge Duration with Battery Temperature
 
-##### Pearson Correlation Test for Discharge Duration in Relation with Temperature
+#### Pearson Correlation Test for Discharge Duration in Relation with Temperature
 
 **Null Hypothesis:** No linear correlation between battery temperature and discharge duration.
 
@@ -203,7 +203,7 @@ Since in the data, there exists two metrics that shows the battery efficiency, t
 
 ![image](https://github.com/user-attachments/assets/175fad49-ffd3-45cf-87ff-6760dd4ad28e)
 
-##### Spearman Correlation Test for Discharge Duration in Relation with Temperature
+#### Spearman Correlation Test for Discharge Duration in Relation with Temperature
 
 **Null Hypothesis:** No monotonic relationship between battery temperature and discharge duration.
 
@@ -217,7 +217,7 @@ Since in the data, there exists two metrics that shows the battery efficiency, t
 
 ![image](https://github.com/user-attachments/assets/aa7f40e6-108d-4250-aeeb-a8e5e547fee4)
 
-##### Two-Tailed T-Test for Discharge Duration in Relation with Temperature Groups
+#### Two-Tailed T-Test for Discharge Duration in Relation with Temperature Groups
 
 **Null Hypothesis:** The mean discharge duration is the same in both groups.
 
@@ -229,7 +229,7 @@ Since in the data, there exists two metrics that shows the battery efficiency, t
 - P-Value: 1.1254142603243133e-42
 - Reject the null hypothesis, proving that the mean discharge duration is different between the groups.
 
-##### One-Tailed T-Test for Discharge Duration in Relation with Temperature Groups
+#### One-Tailed T-Test for Discharge Duration in Relation with Temperature Groups
 
 **Null Hypothesis:** The mean discharge duration in the low temperature group is less than or equal to the high temperature group.s.
 
@@ -245,7 +245,7 @@ Since in the data, there exists two metrics that shows the battery efficiency, t
 
 ![image](https://github.com/user-attachments/assets/506ff738-1fbd-4957-adb5-4cedd0808181)
 
-##### One-Way ANOVA for Discharge Duration in Relation with Temperature Groups
+#### One-Way ANOVA for Discharge Duration in Relation with Temperature Groups
 
 **Null Hypothesis:** Mean discharge duration is equal across all temperature bins.
 
@@ -269,7 +269,7 @@ To make sure, one must continue with the other steps of the hypothesis testing.
 
 #### b. Relation of Battery Capacity with Battery Temperature
 
-##### Pearson Correlation Test for Capacity in Relation with Temperature
+#### Pearson Correlation Test for Capacity in Relation with Temperature
 
 **Null Hypothesis:** No linear correlation between battery temperature and battery capacity.
 
@@ -283,7 +283,7 @@ To make sure, one must continue with the other steps of the hypothesis testing.
 
 ![image](https://github.com/user-attachments/assets/4a70c6d7-a2b5-48a8-945a-4094cfbe5ce1)
 
-##### Spearman Correlation Test for Capacity in Relation with Temperature
+#### Spearman Correlation Test for Capacity in Relation with Temperature
 
 **Null Hypothesis:** No monotonic relationship between battery temperature and battery capacity.
 
@@ -297,7 +297,7 @@ To make sure, one must continue with the other steps of the hypothesis testing.
 
 ![image](https://github.com/user-attachments/assets/a9da9746-28a7-4df7-8a16-b1d23ee08a75)
 
-##### Two-Tailed T-Test for Capacity in Relation with Temperature
+#### Two-Tailed T-Test for Capacity in Relation with Temperature
 
 **Null Hypothesis:** The mean battery capacity is the same in both groups.
 
@@ -309,7 +309,7 @@ To make sure, one must continue with the other steps of the hypothesis testing.
 - P-Value: 1.11288621468798e-50
 - Reject the null hypothesis, proving that the mean battery capacity is different between the groups.
 
-##### One-Tailed T-Test for Capacity in Relation with Temperature Groups
+#### One-Tailed T-Test for Capacity in Relation with Temperature Groups
 
 **Null Hypothesis:** The mean battery capacity in the low temperature group is less than or equal to the high temperature group.
 
@@ -325,7 +325,7 @@ To make sure, one must continue with the other steps of the hypothesis testing.
 
 ![image](https://github.com/user-attachments/assets/d916b3b6-a26a-463a-aa0a-1e59e304337b)
 
-##### One-Way ANOVA for Capacity in Relation with Temperature
+#### One-Way ANOVA for Capacity in Relation with Temperature
 
 **Null Hypothesis:** Mean battery capacity is equal across all temperature bins.
 
@@ -416,6 +416,10 @@ Only remaining part to complete the tests is to examine the relation of the rema
 - -Statistic = 81.73646437193544
 - P-Value = 2.598633162882089e-25
 - Reject the null hypothesis, proving that at least one group mean RUL is different than the others.
+
+![image](https://github.com/user-attachments/assets/2ba6414f-4c34-4757-ba0b-854c38554975)
+
+![image](https://github.com/user-attachments/assets/9cb8abbc-a271-4b55-8d61-a939f4968535)
 
 Based on the analysis done in this step, in low temperatures, the remaining useful life is higher. In the meantime, in high temperatures, the remaining useful life is lower proving that there is a negative relationship between the two variables. This step concludes our hypoteses test stage.
 
