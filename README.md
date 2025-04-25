@@ -8,7 +8,7 @@ In this project, I will work on the effect of temperature on battery efficiency 
 - [Motivation](#motivation)
 - [Data Sources](#data-sources)
 - [Hypotheses](#hypotheses)
-- [Data Analysis Techniques and Stages](#data-analysis-techniques-and-stages)
+- [Methodology](#methodology)
 
 ---
 
@@ -83,8 +83,23 @@ Testing these hypotheses will be the main objective of the analysis phase, with 
 
 ---
 
-## Data Analysis Techniques and Stages
+## Methodology
 
-The data analysis process will begin with exploratory data analysis (EDA). Initially, statistical techniques and visualizations will identify trends and relationships within the combined datasets. With correlation and regression analysis, relationships between temperature, and battery performance parameters will be established. Subsequently, advanced machine learning methodologies such as regression models, random forest algorithms, and support vector regression will be employed to model and predict battery efficiency and remaining useful life. To derive the already stated supplementary indicators, feature engineering will be used.
+The methodology of this project consists of three core phases: data processing, data visualization, and hypothesis testing. Each step was carried out in dedicated Jupyter notebooks to ensure modularity and clarity.
 
-The final predictive models will be evaluated based on their accuracy in predicting the remaining useful life and battery efficiency across varying temperature conditions and chemical characteristics.
+### 1) Data Processing
+
+The data processing phase begins with the extraction of structured battery datasets from MATLAB .mat files, specifically B0005.mat. Using scipy.io, the nested cycle structure is accessed, containing detailed measurements for charge, discharge, and impedance phases. Each sub-structure is parsed and reshaped into Python dictionaries and subsequently converted into data frames. After loading each data frame, based on cycle indices, the data is merged to end up with a data frame consisting of useful variables for data analysis.
+
+### 2) Data Visualization
+
+The visualization stage explores patterns and correlations across the operational and environmental variables of the battery. This includes plotting trends over cycles using line and scatter plots to observe metrics such as discharging time, discharge capacity, and battery temperature changes. Lineplots are employed to compare distributions of battery capacity and RUL across temperature bins.  These visualizations are instrumental in guiding the formation of hypotheses and identifying relationships worth statistically validating.
+
+### 3) Hypothesis Testing
+
+This stage involves statistically testing the relationships between temperature and key performance indicators of the battery. This begins with performing correlation tests, two-tailed and one-tailed t-tests, and one-way ANOVA on discharging time over temperature bins. These techniques are used for both battery capacity and remaining useful life as well, in order. Several hypotesis tests are done on each variable to determine teh significancy of the observed effects.
+
+---
+
+## Findings
+
