@@ -9,6 +9,8 @@ In this project, I will work on the effect of temperature on battery efficiency 
 - [Data Sources](#data-sources)
 - [Hypotheses](#hypotheses)
 - [Methodology](#methodology)
+- [Findings](#findings)
+- [Hypotesis Testing](#hypothesis-testing)
 
 ---
 
@@ -102,4 +104,87 @@ This stage involves statistically testing the relationships between temperature 
 ---
 
 ## Findings
+
+### 1. Average Charging Time across Charging Cycle Bins
+
+Following graphs investigate how the average charging time evolves throughout the battery’s usage cycles. Charging time is a key indicator of a battery’s health and performance, which may change due to internal resistance buildup or degradation.
+
+![image](https://github.com/user-attachments/assets/e3523cff-4459-4b25-b805-00225cc01049)
+
+![image](https://github.com/user-attachments/assets/90d40245-aa44-459e-94f7-202639b30d99)
+
+There is an increasing trend in general but it does not seem as a good indicator to examine for average charging time since there is no consistency.
+
+### 2. Average Temperature across Charging Cycle Bins
+
+Following graphz highlight how temperature changes during the battery charging process over its lifespan. Since temperature affects chemical reactions, it’s crucial to see if operating temperature increases with wear.
+
+![image](https://github.com/user-attachments/assets/ad3ff0b6-316a-43d4-bd84-f46a5ce6601b)
+
+![image](https://github.com/user-attachments/assets/1a72a5ce-334a-49ee-b65e-086323026f29)
+
+Again, since there is not a strong relation that can be seen in general, examining the relation statistically is not necessary.
+
+### 3. Average Discharging Time across Discharging Cycle Bins
+
+The graphs below evaluate how long it takes to discharge the battery over different usage phases. Discharging time directly relates to how long the battery can hold and deliver energy.
+
+![image](https://github.com/user-attachments/assets/160daeac-40f4-4fe5-a7ff-033a70cc2347)
+
+![image](https://github.com/user-attachments/assets/6faa5b26-5a21-4a09-9ad9-be2de387790a)
+
+Since the trend is consistent with the cycle numbers, this relation is important for the hypotesis testing stage.
+
+### 4. Average Temperature across Discharging Cycle Bins
+
+Following graphs are important to explore thermal behavior during discharge and how it varies over time. Understanding discharging temperature trends helps assess safety and energy efficiency.
+
+![image](https://github.com/user-attachments/assets/43a38956-efe8-4b7a-ac25-626abd322c03)
+
+![image](https://github.com/user-attachments/assets/5b3ea88b-223f-44f1-8b16-6da4975c66e3)
+
+Since the trend is almost consistent, one can find examining the relation between average temperature and average discharge time, evaluated in the previous step, necessary. Discharging time vs battery temperature is the first relation examined in the hypotesis testing part of this project.
+
+### 5. Battery Capacity over Discharging Cycles
+
+Battery capacity is the fundamental efficiency metric to monitor. The following raphs explicitly shows that over the discharging cycles, the battery capacity reduces, which indicates a degraadation in battery efficiency. This is critical for quantifying the effect of aging on battery performance.
+
+![image](https://github.com/user-attachments/assets/b9e9a69b-5154-4397-aa66-a5bb2e85328d)
+
+![image](https://github.com/user-attachments/assets/e65c4477-07db-476f-ba73-c421433ba923)
+
+### 6. Average Battery Capacity across Temperature Bins
+
+To assess how the battery temperature influences the discharge capacity of the battery. Since high temperatures can accelerate chemical reactions and degradation, it's important to understand the thermal impact on energy output.
+
+![image](https://github.com/user-attachments/assets/a12ab9c8-64bc-433e-b605-78b42f4b2f5d)
+
+![image](https://github.com/user-attachments/assets/5f5adf79-0681-4269-8dee-1344a92f5a27)
+
+This relation is the second one to be examined in the hypothesis testing part since there is a visually consistent trend between both variables highlighting the importance of battery capacity in order to decide on the battery efficiency trend.
+
+### 7. RUL across Temperature Bins
+
+To see whether RUL varies significantly with respect to operating temperature, the following graphs are used. Since the null hypothesis examines if there is a relation between battery temperature and remaining useful life (RUL), this graphs are important for the hypothesis testing part as well.
+
+![image](https://github.com/user-attachments/assets/a84b53af-986d-444f-8cc8-2ad49570a138)
+
+![image](https://github.com/user-attachments/assets/2c902fc7-1200-497d-a3e4-f3571d503442)
+
+The relation between battery temperature and remaining useful life (RUL) is the third and the last relation that will be studied in the hypothesis testing part.
+
+### 8. Correlation Analysis on Discharge Results
+
+The ones that are highlighted as key metrics before is examined in a correlation heat map, showing a strong relation between the chosen metrics, opposing the temperature. This evaluation is important since after the hypothesis testing, the outcomes will be consistent with this visualization.
+
+![image](https://github.com/user-attachments/assets/f021c0eb-5b21-4ea7-bd4d-db14162126f5)
+
+---
+
+## Hypotesis Testing
+
+
+
+
+
 
