@@ -9,7 +9,7 @@ In this project, I will work on the effect of temperature on battery efficiency 
 - [Data Sources](#data-sources)
 - [Hypotheses](#hypotheses)
 - [Methodology](#methodology)
-- [Findings](#findings)
+- [Visualization Findings](#visualization-findings)
 - [Hypotesis Testing](#hypothesis-testing)
 
 ---
@@ -77,9 +77,9 @@ In addition to these two data sets, supplementary indicators will be derived fro
 
 In order to define the project's research framework, the following null and alternative hypotheses will be tested statistically:
 
-- **Null Hypothesis (H₀)**: Temperature has no relation with the efficiency and remaining useful life of lithium-ion batteries.
+- **Null Hypothesis (H₀)**: Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
 
-- **Alternative Hypothesis (H₁)**: Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
+- **Alternative Hypothesis (H₁)**: Temperature has no relation with the efficiency and remaining useful life of lithium-ion batteries.
 
 Testing these hypotheses will be the main objective of the analysis phase, with the aim of accepting or rejecting them based on quantitative data analysis and predictive modeling.
 
@@ -103,7 +103,7 @@ This stage involves statistically testing the relationships between temperature 
 
 ---
 
-## Findings
+## Visualization Findings
 
 ### 1. Average Charging Time across Charging Cycle Bins
 
@@ -183,8 +183,250 @@ The ones that are highlighted as key metrics before is examined in a correlation
 
 ## Hypotesis Testing
 
+### 1. Relation of Battery Efficinecy with Battery Temperature
 
+Since in the data, there exists two metrics that shows the battery efficiency, there will be two parts that hypotesis tests are conducted on. At the end, the results will be evaluated to make a conclusion.
 
+#### a. Relation of Discharge Duration with Battery Temperature
 
+##### Pearson Correlation Test for Discharge Duration in Relation with Temperature
 
+**Null Hypothesis:** No linear correlation between battery temperature and discharge duration.
 
+**Alternative Hypothesis:** There is a significant linear correlation.
+
+###### Findings
+
+- Correlation Coefficient (r): -0.7586681656065123
+- P-Value: 1.0388933158394018e-32
+- Reject the null hypothesis, proving that there is a significant linear correlation between battery temperature and discharge duration.
+
+![image](https://github.com/user-attachments/assets/175fad49-ffd3-45cf-87ff-6760dd4ad28e)
+
+##### Spearman Correlation Test for Discharge Duration in Relation with Temperature
+
+**Null Hypothesis:** No monotonic relationship between battery temperature and discharge duration.
+
+**Alternative Hypothesis:** There is a significant monotonic correlation.
+
+###### Findings
+
+- Correlation Coefficient (ρ): -0.765188979606299
+- P-Value: 1.4419679611288852e-33
+- Reject the null hypothesis, proving that there is a strong monotonic relation between battery temperature and discharge duration.
+
+![image](https://github.com/user-attachments/assets/aa7f40e6-108d-4250-aeeb-a8e5e547fee4)
+
+##### Two-Tailed T-Test for Discharge Duration in Relation with Temperature Groups
+
+**Null Hypothesis:** The mean discharge duration is the same in both groups.
+
+**Alternative Hypothesis:** The mean discharge duration is different between the groups.
+
+###### Findings
+
+- T-Statistic: 19.345736701918707
+- P-Value: 1.1254142603243133e-42
+- Reject the null hypothesis, proving that the mean discharge duration is different between the groups.
+
+##### One-Tailed T-Test for Discharge Duration in Relation with Temperature Groups
+
+**Null Hypothesis:** The mean discharge duration in the low temperature group is less than or equal to the high temperature group.s.
+
+**Alternative Hypothesis:** The mean discharge duration is greater in the low temperature group.
+
+###### Findings
+
+- T-Statistic: 19.345736701918707
+- One-Tailed P-Value: 5.627071301621567e-43
+- Reject the null hypothesis, proving that the mean discharge duration is greater in the low temperature group.
+
+![image](https://github.com/user-attachments/assets/1c740229-a5d3-4092-8647-e6ba42a3e27b)
+
+![image](https://github.com/user-attachments/assets/506ff738-1fbd-4957-adb5-4cedd0808181)
+
+##### One-Way ANOVA for Discharge Duration in Relation with Temperature Groups
+
+**Null Hypothesis:** Mean discharge duration is equal across all temperature bins.
+
+**Alternative Hypothesis:** At least one group differs.
+
+###### Findings
+
+- F-Statistic = 68.22562456047194
+- P-Value = 2.552793322562453e-22
+- Reject the null hypothesis, proving that at least one group mean discharge duration is different than the others.
+
+![image](https://github.com/user-attachments/assets/e9304850-f407-486c-bcba-cebd34c01ddb)
+
+![image](https://github.com/user-attachments/assets/deb82f12-d562-4f6a-a06e-c1357070cf67)
+
+When all of the steps in the analysis of the battery discharge duration relation with battery temperature are examined, one can say that there is a strong negative relation that shows in the lower temperatures, the battery discharge duration is higher and while the temperature rises, the battery discharge duration lowers. This conclusion strenghtens out null hypothesis which is:
+
+**Null Hypothesis (H₀)**: Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
+
+To make sure, one must continue with the other steps of the hypothesis testing.
+
+#### b. Relation of Battery Capacity with Battery Temperature
+
+##### Pearson Correlation Test for Capacity in Relation with Temperature
+
+**Null Hypothesis:** No linear correlation between battery temperature and battery capacity.
+
+**Alternative Hypothesis:** There is a significant linear correlation.
+
+###### Findings
+
+- Correlation Coefficient (r): -0.8097441885175425
+- P-Value: 2.8106843882059685e-40
+- Reject the null hypothesis, proving that there is a significant linear correlation between battery temperature and battery capacity.
+
+![image](https://github.com/user-attachments/assets/4a70c6d7-a2b5-48a8-945a-4094cfbe5ce1)
+
+##### Spearman Correlation Test for Capacity in Relation with Temperature
+
+**Null Hypothesis:** No monotonic relationship between battery temperature and battery capacity.
+
+**Alternative Hypothesis:** There is a significant monotonic correlation.
+
+###### Findings
+
+- Correlation Coefficient (ρ): -0.7657508313887864
+- P-Value: 1.2127188259834856e-33
+- Reject the null hypothesis, proving that there is a strong monotonic relation between battery temperature and battery capacity.
+
+![image](https://github.com/user-attachments/assets/a9da9746-28a7-4df7-8a16-b1d23ee08a75)
+
+##### Two-Tailed T-Test for Capacity in Relation with Temperature
+
+**Null Hypothesis:** The mean battery capacity is the same in both groups.
+
+**Alternative Hypothesis:** The mean battery capacity is different between the groups.
+
+###### Findings
+
+- T-Statistic: 21.839623575172133
+- P-Value: 1.11288621468798e-50
+- Reject the null hypothesis, proving that the mean battery capacity is different between the groups.
+
+##### One-Tailed T-Test for Capacity in Relation with Temperature Groups
+
+**Null Hypothesis:** The mean battery capacity in the low temperature group is less than or equal to the high temperature group.
+
+**Alternative Hypothesis:** The mean battery capacity is greater in the low temperature group.
+
+###### Findings
+
+- T-Statistic: 21.839623575172133
+- One-Tailed P-Value: 5.5644310734399e-51
+- Reject the null hypothesis, proving that the mean battery capacity is greater in the low temperature group.
+
+![image](https://github.com/user-attachments/assets/3c76ac41-5c73-47e7-898b-1717ad3b433d)
+
+![image](https://github.com/user-attachments/assets/d916b3b6-a26a-463a-aa0a-1e59e304337b)
+
+##### One-Way ANOVA for Capacity in Relation with Temperature
+
+**Null Hypothesis:** Mean battery capacity is equal across all temperature bins.
+
+**Alternative Hypothesis:** At least one group differs.
+
+###### Findings
+
+- F-Statistic = 93.62187835584314
+- P-Value = 6.727485891787589e-28
+- Reject the null hypothesis, proving that at least one group mean charge capacity is different than the others.
+
+![image](https://github.com/user-attachments/assets/617644aa-e5fd-4df3-9902-6ee8c182de7c)
+
+![image](https://github.com/user-attachments/assets/f1e80217-ddd7-4232-9d2f-8451a7a13618)
+
+When all the steps in this part are evaluated, it is obvious that in the lower temoeratures, the battery capacity is higher, while the temperature rises, the battery capacity starts to degrade resulting in a lower battery efficiency. Combined with the discharge duration tests, it is possible that there is a negative relation between battery temperature and battery efficiency, concluding the first part of the null hypothesis.
+
+**Null Hypothesis (H₀)**: Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
+
+Only remaining part to complete the tests is to examine the relation of the remaining useful life (RUL) with battery temperature.
+
+### 2. Relation of Remaining Useful Life (RUL) with Battery Temperature
+
+##### Pearson Correlation Test for RUL in Relation with Temperature
+
+**Null Hypothesis:** No linear correlation between battery temperature and remaining useful life (RUL).
+
+**Alternative Hypothesis:** There is a significant linear correlation.
+
+###### Findings
+
+- Correlation Coefficient (r): -0.7918862831172826
+- P-Value: 5.831299114433377e-37
+- Reject the null hypothesis, proving that there is a significant linear correlation between battery temperature and remaining useful life (RUL).
+- 
+![image](https://github.com/user-attachments/assets/1696c3e7-ae6b-4a46-8467-c06fa8632c11)
+
+##### Spearman Correlation Test for RUL in Relation with Temperature
+
+**Null Hypothesis:** No monotonic relationship between battery temperature and remaining useful life (RUL).
+
+**Alternative Hypothesis:** There is a significant monotonic correlation.
+
+###### Findings
+
+- Correlation Coefficient (ρ): -0.7830223452328641
+- P-Value: 1.2004211657701526e-35
+- Reject the null hypothesis, proving that there is a strong monotonic relation between battery temperature and remaining useful life (RUL).
+
+![image](https://github.com/user-attachments/assets/35fda465-c367-45a1-9120-302a47dabea9)
+
+##### Two-Tailed T-Test for Remaining useful Life (RUL) in Relation with Temperature
+
+**Null Hypothesis:** The mean remaining useful life (RUL) is the same in both groups.
+
+**Alternative Hypothesis:** The mean remaining useful life (RUL) is different between the groups.
+
+###### Findings
+
+- T-Statistic: 20.57740189874722
+- P-Value: 5.621172405518512e-47
+- Reject the null hypothesis, proving that the mean remaining useful life (RUL) is different between the groups.
+
+##### One-Tailed T-Test for Remaining useful Life (RUL) in Relation with Temperature
+
+**Null Hypothesis:** The mean RUL in the low temperature group is less than or equal to the high temperature group.
+
+**Alternative Hypothesis:** The mean RUL is greater in the low temperature group.
+
+###### Findings
+
+- T-Statistic: 20.57740189874722
+- One-Tailed P-Value: 2.810586202759256e-47
+- Reject the null hypothesis, proving that the mean RUL is greater in the low temperature group.
+
+![image](https://github.com/user-attachments/assets/d57461d4-61dd-4687-b557-02f5f84f6556)
+
+![image](https://github.com/user-attachments/assets/18491943-7964-44c7-992a-1885ebfdbc6b)
+
+##### One-Way ANOVA for RUL in Relation with Temperature
+
+**Null Hypothesis:** Mean RUL is equal across all temperature bins.
+
+**Alternative Hypothesis:** At least one group differs.
+
+###### Findings
+
+- -Statistic = 81.73646437193544
+- P-Value = 2.598633162882089e-25
+- Reject the null hypothesis, proving that at least one group mean RUL is different than the others.
+
+Based on the analysis done in this step, in low temperatures, the remaining useful life is higher. In the meantime, in high temperatures, the remaining useful life is lower proving that there is a negative relationship between the two variables. This step concludes our hypoteses test stage.
+
+**Null Hypothesis (H₀)**: Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
+
+**Alternative Hypothesis (H₁)**: Temperature has no relation with the efficiency and remaining useful life of lithium-ion batteries.
+
+We do not have enough evidence to reject the null hypothesis since in each step, the relation between temperature and battery efficiency and remaining useful life. 
+
+**Null Hypothesis (H₀)**: Temperature has no relation with the efficiency and remaining useful life of lithium-ion batteries.
+
+**Alternative Hypothesis (H₁)**: Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
+
+If the hypotheses were constructed like this, one could reject the null hypothesis, since the relation is proved for all the variables.
