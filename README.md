@@ -360,7 +360,7 @@ Only remaining part to complete the tests is to examine the relation of the rema
 - Correlation Coefficient (r): -0.7918862831172826
 - P-Value: 5.831299114433377e-37
 - Reject the null hypothesis, proving that there is a significant linear correlation between battery temperature and remaining useful life (RUL).
-- 
+
 ![image](https://github.com/user-attachments/assets/1696c3e7-ae6b-4a46-8467-c06fa8632c11)
 
 ##### Spearman Correlation Test for RUL in Relation with Temperature
