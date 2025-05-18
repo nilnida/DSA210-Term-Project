@@ -99,7 +99,7 @@ The visualization stage explores patterns and correlations across the operationa
 
 ### 3) Hypothesis Testing
 
-This stage involves statistically testing the relationships between temperature and key performance indicators of the battery. This begins with performing correlation tests, two-tailed and one-tailed t-tests, and one-way ANOVA on discharging time over temperature bins. These techniques are used for both battery capacity and remaining useful life as well, in order. Several hypotesis tests are done on each variable to determine teh significancy of the observed effects.
+This stage involves statistically testing the relationships between temperature and key performance indicators of the battery. This begins with performing correlation tests, two-tailed and one-tailed t-tests, and one-way ANOVA on discharging time over temperature bins. These techniques are used for both battery capacity and remaining useful life as well, in order. Several hypotesis tests are done on each variable to determine the significancy of the observed effects.
 
 ---
 
