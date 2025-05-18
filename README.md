@@ -10,7 +10,8 @@ In this project, I will work on the effect of temperature on battery efficiency 
 - [Hypotheses](#hypotheses)
 - [Methodology](#methodology)
 - [Visualization Findings](#visualization-findings)
-- [Hypotesis Testing](#hypothesis-testing)
+- [Hypothesis Testing](#hypothesis-testing)
+- [ML Model Implementation](#ml-model-implementation)
 
 ---
 
@@ -181,65 +182,65 @@ The ones that are highlighted as key metrics before is examined in a correlation
 
 ---
 
-## Hypotesis Testing
+## Hypothesis Testing
 
 ### 1. Relation of Battery Efficinecy with Battery Temperature
 
 Since in the data, there exists two metrics that shows the battery efficiency, there will be two parts that hypotesis tests are conducted on. At the end, the results will be evaluated to make a conclusion.
 
-#### a. Relation of Discharge Duration with Battery Temperature
+### a. Relation of Discharge Duration with Battery Temperature
 
 #### Pearson Correlation Test for Discharge Duration in Relation with Temperature
 
-**Null Hypothesis:** No linear correlation between battery temperature and discharge duration.
+**Null Hypothesis (H₀):** No linear correlation between battery temperature and discharge duration.
 
-**Alternative Hypothesis:** There is a significant linear correlation.
+**Alternative Hypothesis (H₁):** There is a significant linear correlation.
 
-###### Findings
+**Findings:**
 
 - Correlation Coefficient (r): -0.7586681656065123
 - P-Value: 1.0388933158394018e-32
-- Reject the null hypothesis, proving that there is a significant linear correlation between battery temperature and discharge duration.
+- **Reject the null hypothesis**, proving that there is a significant linear correlation between battery temperature and discharge duration.
 
 ![image](https://github.com/user-attachments/assets/175fad49-ffd3-45cf-87ff-6760dd4ad28e)
 
 #### Spearman Correlation Test for Discharge Duration in Relation with Temperature
 
-**Null Hypothesis:** No monotonic relationship between battery temperature and discharge duration.
+**Null Hypothesis (H₀):** No monotonic relationship between battery temperature and discharge duration.
 
-**Alternative Hypothesis:** There is a significant monotonic correlation.
+**Alternative Hypothesis (H₁):** There is a significant monotonic correlation.
 
-###### Findings
+**Findings:**
 
 - Correlation Coefficient (ρ): -0.765188979606299
 - P-Value: 1.4419679611288852e-33
-- Reject the null hypothesis, proving that there is a strong monotonic relation between battery temperature and discharge duration.
+- **Reject the null hypothesis**, proving that there is a strong monotonic relation between battery temperature and discharge duration.
 
 ![image](https://github.com/user-attachments/assets/aa7f40e6-108d-4250-aeeb-a8e5e547fee4)
 
 #### Two-Tailed T-Test for Discharge Duration in Relation with Temperature Groups
 
-**Null Hypothesis:** The mean discharge duration is the same in both groups.
+**Null Hypothesis (H₀):** The mean discharge duration is the same in both groups.
 
-**Alternative Hypothesis:** The mean discharge duration is different between the groups.
+**Alternative Hypothesis (H₁):** The mean discharge duration is different between the groups.
 
-###### Findings
+**Findings:**
 
 - T-Statistic: 19.345736701918707
 - P-Value: 1.1254142603243133e-42
-- Reject the null hypothesis, proving that the mean discharge duration is different between the groups.
+- **Reject the null hypothesis**, proving that the mean discharge duration is different between the groups.
 
 #### One-Tailed T-Test for Discharge Duration in Relation with Temperature Groups
 
-**Null Hypothesis:** The mean discharge duration in the low temperature group is less than or equal to the high temperature group.s.
+**Null Hypothesis (H₀):** The mean discharge duration in the low temperature group is less than or equal to the high temperature group.s.
 
-**Alternative Hypothesis:** The mean discharge duration is greater in the low temperature group.
+**Alternative Hypothesis (H₁):** The mean discharge duration is greater in the low temperature group.
 
-###### Findings
+**Findings:**
 
 - T-Statistic: 19.345736701918707
 - One-Tailed P-Value: 5.627071301621567e-43
-- Reject the null hypothesis, proving that the mean discharge duration is greater in the low temperature group.
+- **Reject the null hypothesis**, proving that the mean discharge duration is greater in the low temperature group.
 
 ![image](https://github.com/user-attachments/assets/1c740229-a5d3-4092-8647-e6ba42a3e27b)
 
@@ -247,15 +248,15 @@ Since in the data, there exists two metrics that shows the battery efficiency, t
 
 #### One-Way ANOVA for Discharge Duration in Relation with Temperature Groups
 
-**Null Hypothesis:** Mean discharge duration is equal across all temperature bins.
+**Null Hypothesis (H₀):** Mean discharge duration is equal across all temperature bins.
 
-**Alternative Hypothesis:** At least one group differs.
+**Alternative Hypothesis (H₁):** At least one group differs.
 
-###### Findings
+**Findings:**
 
 - F-Statistic = 68.22562456047194
 - P-Value = 2.552793322562453e-22
-- Reject the null hypothesis, proving that at least one group mean discharge duration is different than the others.
+- **Reject the null hypothesis**, proving that at least one group mean discharge duration is different than the others.
 
 ![image](https://github.com/user-attachments/assets/e9304850-f407-486c-bcba-cebd34c01ddb)
 
@@ -267,59 +268,59 @@ When all of the steps in the analysis of the battery discharge duration relation
 
 To make sure, one must continue with the other steps of the hypothesis testing.
 
-#### b. Relation of Battery Capacity with Battery Temperature
+### b. Relation of Battery Capacity with Battery Temperature
 
 #### Pearson Correlation Test for Capacity in Relation with Temperature
 
-**Null Hypothesis:** No linear correlation between battery temperature and battery capacity.
+**Null Hypothesis (H₀):** No linear correlation between battery temperature and battery capacity.
 
-**Alternative Hypothesis:** There is a significant linear correlation.
+**Alternative Hypothesis (H₁):** There is a significant linear correlation.
 
-###### Findings
+**Findings:**
 
 - Correlation Coefficient (r): -0.8097441885175425
 - P-Value: 2.8106843882059685e-40
-- Reject the null hypothesis, proving that there is a significant linear correlation between battery temperature and battery capacity.
+- **Reject the null hypothesis**, proving that there is a significant linear correlation between battery temperature and battery capacity.
 
 ![image](https://github.com/user-attachments/assets/4a70c6d7-a2b5-48a8-945a-4094cfbe5ce1)
 
 #### Spearman Correlation Test for Capacity in Relation with Temperature
 
-**Null Hypothesis:** No monotonic relationship between battery temperature and battery capacity.
+**Null Hypothesis (H₀):** No monotonic relationship between battery temperature and battery capacity.
 
-**Alternative Hypothesis:** There is a significant monotonic correlation.
+**Alternative Hypothesis (H₁):** There is a significant monotonic correlation.
 
-###### Findings
+**Findings:**
 
 - Correlation Coefficient (ρ): -0.7657508313887864
 - P-Value: 1.2127188259834856e-33
-- Reject the null hypothesis, proving that there is a strong monotonic relation between battery temperature and battery capacity.
+- **Reject the null hypothesis**, proving that there is a strong monotonic relation between battery temperature and battery capacity.
 
 ![image](https://github.com/user-attachments/assets/a9da9746-28a7-4df7-8a16-b1d23ee08a75)
 
 #### Two-Tailed T-Test for Capacity in Relation with Temperature
 
-**Null Hypothesis:** The mean battery capacity is the same in both groups.
+**Null Hypothesis (H₀):** The mean battery capacity is the same in both groups.
 
-**Alternative Hypothesis:** The mean battery capacity is different between the groups.
+**Alternative Hypothesis (H₁):** The mean battery capacity is different between the groups.
 
-###### Findings
+**Findings:**
 
 - T-Statistic: 21.839623575172133
 - P-Value: 1.11288621468798e-50
-- Reject the null hypothesis, proving that the mean battery capacity is different between the groups.
+- **Reject the null hypothesis**, proving that the mean battery capacity is different between the groups.
 
 #### One-Tailed T-Test for Capacity in Relation with Temperature Groups
 
-**Null Hypothesis:** The mean battery capacity in the low temperature group is less than or equal to the high temperature group.
+**Null Hypothesis (H₀):** The mean battery capacity in the low temperature group is less than or equal to the high temperature group.
 
-**Alternative Hypothesis:** The mean battery capacity is greater in the low temperature group.
+**Alternative Hypothesis (H₁):** The mean battery capacity is greater in the low temperature group.
 
-###### Findings
+**Findings:**
 
 - T-Statistic: 21.839623575172133
 - One-Tailed P-Value: 5.5644310734399e-51
-- Reject the null hypothesis, proving that the mean battery capacity is greater in the low temperature group.
+- **Reject the null hypothesis**, proving that the mean battery capacity is greater in the low temperature group.
 
 ![image](https://github.com/user-attachments/assets/3c76ac41-5c73-47e7-898b-1717ad3b433d)
 
@@ -327,15 +328,15 @@ To make sure, one must continue with the other steps of the hypothesis testing.
 
 #### One-Way ANOVA for Capacity in Relation with Temperature
 
-**Null Hypothesis:** Mean battery capacity is equal across all temperature bins.
+**Null Hypothesis (H₀):** Mean battery capacity is equal across all temperature bins.
 
-**Alternative Hypothesis:** At least one group differs.
+**Alternative Hypothesis (H₁):** At least one group differs.
 
-###### Findings
+**Findings:**
 
 - F-Statistic = 93.62187835584314
 - P-Value = 6.727485891787589e-28
-- Reject the null hypothesis, proving that at least one group mean charge capacity is different than the others.
+- **Reject the null hypothesis**, proving that at least one group mean charge capacity is different than the others.
 
 ![image](https://github.com/user-attachments/assets/617644aa-e5fd-4df3-9902-6ee8c182de7c)
 
@@ -349,88 +350,91 @@ Only remaining part to complete the tests is to examine the relation of the rema
 
 ### 2. Relation of Remaining Useful Life (RUL) with Battery Temperature
 
-##### Pearson Correlation Test for RUL in Relation with Temperature
+#### Pearson Correlation Test for RUL in Relation with Temperature
 
-**Null Hypothesis:** No linear correlation between battery temperature and remaining useful life (RUL).
+**Null Hypothesis (H₀):** No linear correlation between battery temperature and remaining useful life (RUL).
 
-**Alternative Hypothesis:** There is a significant linear correlation.
+**Alternative Hypothesis (H₁):** There is a significant linear correlation.
 
-###### Findings
+**Findings:**
 
 - Correlation Coefficient (r): -0.7918862831172826
 - P-Value: 5.831299114433377e-37
-- Reject the null hypothesis, proving that there is a significant linear correlation between battery temperature and remaining useful life (RUL).
+- **Reject the null hypothesis**, proving that there is a significant linear correlation between battery temperature and remaining useful life (RUL).
 
 ![image](https://github.com/user-attachments/assets/1696c3e7-ae6b-4a46-8467-c06fa8632c11)
 
-##### Spearman Correlation Test for RUL in Relation with Temperature
+#### Spearman Correlation Test for RUL in Relation with Temperature
 
-**Null Hypothesis:** No monotonic relationship between battery temperature and remaining useful life (RUL).
+**Null Hypothesis (H₀):** No monotonic relationship between battery temperature and remaining useful life (RUL).
 
-**Alternative Hypothesis:** There is a significant monotonic correlation.
+**Alternative Hypothesis (H₁):** There is a significant monotonic correlation.
 
-###### Findings
+**Findings:**
 
 - Correlation Coefficient (ρ): -0.7830223452328641
 - P-Value: 1.2004211657701526e-35
-- Reject the null hypothesis, proving that there is a strong monotonic relation between battery temperature and remaining useful life (RUL).
+- **Reject the null hypothesis**, proving that there is a strong monotonic relation between battery temperature and remaining useful life (RUL).
 
 ![image](https://github.com/user-attachments/assets/35fda465-c367-45a1-9120-302a47dabea9)
 
-##### Two-Tailed T-Test for Remaining useful Life (RUL) in Relation with Temperature
+#### Two-Tailed T-Test for Remaining useful Life (RUL) in Relation with Temperature
 
-**Null Hypothesis:** The mean remaining useful life (RUL) is the same in both groups.
+**Null Hypothesis (H₀):** The mean remaining useful life (RUL) is the same in both groups.
 
-**Alternative Hypothesis:** The mean remaining useful life (RUL) is different between the groups.
+**Alternative Hypothesis (H₁):** The mean remaining useful life (RUL) is different between the groups.
 
-###### Findings
+**Findings:**
 
 - T-Statistic: 20.57740189874722
 - P-Value: 5.621172405518512e-47
-- Reject the null hypothesis, proving that the mean remaining useful life (RUL) is different between the groups.
+- **Reject the null hypothesis**, proving that the mean remaining useful life (RUL) is different between the groups.
 
-##### One-Tailed T-Test for Remaining useful Life (RUL) in Relation with Temperature
+#### One-Tailed T-Test for Remaining useful Life (RUL) in Relation with Temperature
 
-**Null Hypothesis:** The mean RUL in the low temperature group is less than or equal to the high temperature group.
+**Null Hypothesis (H₀):** The mean RUL in the low temperature group is less than or equal to the high temperature group.
 
-**Alternative Hypothesis:** The mean RUL is greater in the low temperature group.
+**Alternative Hypothesis (H₁):** The mean RUL is greater in the low temperature group.
 
-###### Findings
+**Findings:**
 
 - T-Statistic: 20.57740189874722
 - One-Tailed P-Value: 2.810586202759256e-47
-- Reject the null hypothesis, proving that the mean RUL is greater in the low temperature group.
+- **Reject the null hypothesis**, proving that the mean RUL is greater in the low temperature group.
 
 ![image](https://github.com/user-attachments/assets/d57461d4-61dd-4687-b557-02f5f84f6556)
 
 ![image](https://github.com/user-attachments/assets/18491943-7964-44c7-992a-1885ebfdbc6b)
 
-##### One-Way ANOVA for RUL in Relation with Temperature
+#### One-Way ANOVA for RUL in Relation with Temperature
 
-**Null Hypothesis:** Mean RUL is equal across all temperature bins.
+**Null Hypothesis (H₀):** Mean RUL is equal across all temperature bins.
 
-**Alternative Hypothesis:** At least one group differs.
+**Alternative Hypothesis (H₁):** At least one group differs.
 
-###### Findings
+**Findings:**
 
 - -Statistic = 81.73646437193544
 - P-Value = 2.598633162882089e-25
-- Reject the null hypothesis, proving that at least one group mean RUL is different than the others.
+- **Reject the null hypothesis**, proving that at least one group mean RUL is different than the others.
 
 ![image](https://github.com/user-attachments/assets/2ba6414f-4c34-4757-ba0b-854c38554975)
 
 ![image](https://github.com/user-attachments/assets/9cb8abbc-a271-4b55-8d61-a939f4968535)
 
-Based on the analysis done in this step, in low temperatures, the remaining useful life is higher. In the meantime, in high temperatures, the remaining useful life is lower proving that there is a negative relationship between the two variables. This step concludes our hypoteses test stage.
+Based on the analysis done in this step, in low temperatures, the remaining useful life is higher. In the meantime, in high temperatures, the remaining useful life is lower proving that there is a negative relationship between the two variables. This step concludes our hypothesis testing stage.
 
-**Null Hypothesis (H₀)**: Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
+**Null Hypothesis (H₀):** Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
 
-**Alternative Hypothesis (H₁)**: Temperature has no relation with the efficiency and remaining useful life of lithium-ion batteries.
+**Alternative Hypothesis (H₁):** Temperature has no relation with the efficiency and remaining useful life of lithium-ion batteries.
 
-We do not have enough evidence to reject the null hypothesis since in each step, the relation between temperature and battery efficiency and remaining useful life. 
+We do not have sufficient evidence to reject the null hypothesis. Statistical analyses conducted throughout the study consistently revealed a meaningful relationship between temperature and both efficiency indicators (discharge time and battery capacity) as well as remaining useful life (RUL). The presence of statistically significant correlations suggests that variations in temperature are associated with changes in battery performance metrics. As a result, we retain the null hypothesis that temperature has a relationship with the efficiency and remaining useful life of lithium-ion batteries. These findings support the theoretical expectation that thermal conditions influence battery degradation behavior.
 
-**Null Hypothesis (H₀)**: Temperature has no relation with the efficiency and remaining useful life of lithium-ion batteries.
+## ML Model Implementation
 
-**Alternative Hypothesis (H₁)**: Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
+### Linear Regression Model to Predict Remaining Useful Life (RUL)
 
-If the hypotheses were constructed like this, one could reject the null hypothesis, since the relation is proved for all the variables.
+**Objective:**
+
+
+
