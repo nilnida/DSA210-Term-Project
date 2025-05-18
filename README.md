@@ -1,6 +1,6 @@
 # DSA210-Term-Project
 
-In this project, I will work on the effect of temperature on battery efficiency and try to predict remaining useful lifetime behavior. By doing so, I aim to use my conclusions to create solutions to achieve effective usage of batteries in daily life. The plan is to use the main dataset that shows the relation of different operation type variables and the ambient temperature as the main source and support it with a different dataset that shows the battery chemistry relation with the changing temperature. Also, during the analysis, some other indicators will be derived from the existing data for further exploration.
+In this project, I will investigate the effect of temperature on battery efficiency and aim to model the remaining useful life (RUL) behavior of lithium-ion batteries. By doing so, I intend to derive meaningful conclusions that can be translated into practical solutions to enhance battery usage efficiency in daily life applications. The core of the study relies on analyzing a comprehensive dataset that captures the interplay between operational parameters and ambient temperature. This main dataset is complemented by another that includes battery chemistry characteristics across temperature ranges. Additionally, throughout the analysis, supplementary indicators will be engineered from the existing data to further enrich the insights and modeling accuracy.
 
 ---
 
@@ -21,7 +21,7 @@ In the rapid revolutions occuring in technology today, the adoption of lithium-i
 
 Battery efficiency, reliability, lifespan and safety relies on multiple factors but one of the critical ones is the temperature stemming from the chemical nature of lithium-ion batteries. In general, it is known that when batteries are exposed to high temperatures, their capacity and performance consistency decreases while safety risks increases. However, the infuence of the temperature is still an ongoing research area since there is no concrete explanation showing the effect of variations in temperature on battery performance metrics.
 
-This project will systematically reveal the relations between temperature, battery chemistry, and performance providing a general understanding. Hence, it is going to be possible to offer practical real-life solutions regarding battery management and optimization.
+This project seeks to explore and quantify the relationship between battery temperature and key efficiency indicators such as discharge time, capacity, and remaining useful life (RUL). By doing so, it aims to contribute to the development of real-world battery management strategies that are grounded in data-driven insights.
 
 ---
 
@@ -82,13 +82,13 @@ In order to define the project's research framework, the following null and alte
 
 - **Alternative Hypothesis (H₁)**: Temperature has no relation with the efficiency and remaining useful life of lithium-ion batteries.
 
-Testing these hypotheses will be the main objective of the analysis phase, with the aim of accepting or rejecting them based on quantitative data analysis and predictive modeling.
+These hypotheses will be tested using statistical methods, including correlation analysis, hypothesis testing, and regression modeling. The goal is to determine whether temperature is a statistically significant factor affecting battery performance metrics.
 
 ---
 
 ## Methodology
 
-The methodology of this project consists of three core phases: data processing, data visualization, and hypothesis testing. Each step was carried out in dedicated Jupyter notebooks to ensure modularity and clarity.
+The methodology of this project consists of four core phases: data processing, data visualization, hypothesis testing and machine leraning model implementation. Each step was carried out in dedicated Jupyter notebooks to ensure modularity and clarity.
 
 ### 1) Data Processing
 
@@ -100,7 +100,11 @@ The visualization stage explores patterns and correlations across the operationa
 
 ### 3) Hypothesis Testing
 
-This stage involves statistically testing the relationships between temperature and key performance indicators of the battery. This begins with performing correlation tests, two-tailed and one-tailed t-tests, and one-way ANOVA on discharging time over temperature bins. These techniques are used for both battery capacity and remaining useful life as well, in order. Several hypotesis tests are done on each variable to determine the significancy of the observed effects.
+This stage involves statistically testing the relationships between temperature and key performance indicators of the battery. This begins with performing correlation tests, two-tailed and one-tailed t-tests, and one-way ANOVA on discharging time over temperature bins. These techniques are used for both battery capacity and remaining useful life as well, in order. Several hypothesis tests are done on each variable to determine the significancy of the observed effects.
+
+### 4) Machine Learning Model Implementation
+
+The final phase involves implementing a machine learning model to investigate whether operational variables such as battery capacity, discharge time, and remaining useful life could be used to predict battery temperature. A linear regression model is selected due to its interpretability and effectiveness in identifying linear trends. The dataset is first cleaned and preprocessed to remove missing values, and then split into training and testing sets. Model performance is evaluated using RMSE and R² metrics. Additional evaluation includes a scatter plot comparing actual vs. predicted temperature values and a confusion matrix generated by binning temperature predictions. This phase provides a predictive perspective that supported and extends the conclusions drawn from hypothesis testing.
 
 ---
 
@@ -108,77 +112,95 @@ This stage involves statistically testing the relationships between temperature 
 
 ### 1. Average Charging Time across Charging Cycle Bins
 
-Following graphs investigate how the average charging time evolves throughout the battery’s usage cycles. Charging time is a key indicator of a battery’s health and performance, which may change due to internal resistance buildup or degradation.
+The following graphs explore how the average charging time evolves across different phases of the battery’s lifecycle. Charging time is an essential metric for evaluating a battery’s operational health, as it can be affected by internal resistance buildup, aging effects, and chemical degradation over time. Understanding how this variable changes across cycles can provide insights into the underlying electrochemical structure.
 
 ![image](https://github.com/user-attachments/assets/e3523cff-4459-4b25-b805-00225cc01049)
 
 ![image](https://github.com/user-attachments/assets/90d40245-aa44-459e-94f7-202639b30d99)
 
-There is an increasing trend in general but it does not seem as a good indicator to examine for average charging time since there is no consistency.
+The visualizations reveal a generally increasing trend in charging time as the cycle number increases, indicating that the battery begins to require more time to reach full charge. This is expected as internal resistance typically increases with age, slowing down the charging process. However, despite the overall trend, the graphs also display a degree of inconsistency and fluctuation from cycle to cycle, suggesting that charging time may be influenced by other factors or may not serve as a stable indicator of battery health.
+
+Given this variability, average charging time was not selected as a key variable for hypothesis testing. While the upward trend is visible, its lack of consistency across cycles makes it less reliable for drawing statistically meaningful conclusions compared to other indicators like discharge time, capacity, or remaining useful life.
 
 ### 2. Average Temperature across Charging Cycle Bins
 
-Following graphz highlight how temperature changes during the battery charging process over its lifespan. Since temperature affects chemical reactions, it’s crucial to see if operating temperature increases with wear.
+The following graphs illustrate how the battery's internal temperature changes throughout the charging cycles. Since temperature directly influences the rate of chemical reactions and degradation processes within lithium-ion cells, monitoring its variation over time is critical for assessing both performance and safety. Ideally, an increase in temperature over time could indicate rising internal resistance or abnormal cell behavior, which are early signs of aging or inefficiency.
 
 ![image](https://github.com/user-attachments/assets/ad3ff0b6-316a-43d4-bd84-f46a5ce6601b)
 
 ![image](https://github.com/user-attachments/assets/1a72a5ce-334a-49ee-b65e-086323026f29)
 
-Again, since there is not a strong relation that can be seen in general, examining the relation statistically is not necessary.
+In this case, the visualizations show that temperature values remain relatively stable across the charging cycle bins, with only slight fluctuations. There is no clear upward or downward trend that consistently correlates with cycle progression. This suggests that during charging, the battery's thermal profile remains largely controlled and does not display significant thermal degradation patterns.
+
+Due to the lack of a consistent or statistically visible relationship, this metric was not selected for detailed hypothesis testing. While temperature is an important safety and performance factor, its stability during charging indicates that any thermal effects are likely being managed well under the tested conditions and do not strongly reflect changes in battery efficiency over time.
 
 ### 3. Average Discharging Time across Discharging Cycle Bins
 
-The graphs below evaluate how long it takes to discharge the battery over different usage phases. Discharging time directly relates to how long the battery can hold and deliver energy.
+The graphs below examine how discharging time evolves across different battery usage phases. Discharging time is a key efficiency indicator, reflecting how long the battery is capable of supplying energy during each cycle. As the battery ages, a decrease in discharging time typically indicates capacity degradation or increased internal resistance, both of which impair the battery’s ability to maintain energy output over time.
 
 ![image](https://github.com/user-attachments/assets/160daeac-40f4-4fe5-a7ff-033a70cc2347)
 
 ![image](https://github.com/user-attachments/assets/6faa5b26-5a21-4a09-9ad9-be2de387790a)
 
-Since the trend is consistent with the cycle numbers, this relation is important for the hypotesis testing stage.
+In this case, the visualizations show a clear and consistent downward trend in discharging time as the cycle number increases. This suggests that the battery's ability to hold and deliver charge diminishes progressively with continued usage which is a behavior that aligns well with expected degradation patterns in lithium-ion batteries.
+
+Because the trend is directionally coherent, this variable is highly relevant for further statistical analysis. Its strong cycle-based pattern makes it suitable for hypothesis testing against temperature data, to explore whether thermal effects influence how long the battery retains functional energy output. Therefore, discharging time is used as one of the core efficiency metrics in the hypothesis testing stage of this project.
 
 ### 4. Average Temperature across Discharging Cycle Bins
 
-Following graphs are important to explore thermal behavior during discharge and how it varies over time. Understanding discharging temperature trends helps assess safety and energy efficiency.
+The following graphs investigate how battery temperature evolves specifically during the discharge cycles across the battery’s lifespan. Monitoring temperature during discharge is essential because it reflects real-time thermal stress on the battery while it actively delivers energy. Excessive heating during discharge may signal inefficiencies, internal resistance buildup, or safety risks associated with degradation.
 
 ![image](https://github.com/user-attachments/assets/43a38956-efe8-4b7a-ac25-626abd322c03)
 
 ![image](https://github.com/user-attachments/assets/5b3ea88b-223f-44f1-8b16-6da4975c66e3)
 
-Since the trend is almost consistent, one can find examining the relation between average temperature and average discharge time, evaluated in the previous step, necessary. Discharging time vs battery temperature is the first relation examined in the hypotesis testing part of this project.
+The visualizations reveal a relatively stable but slightly increasing trend in average temperature as the cycle number advances. This suggests a mild thermal accumulation effect, which could be due to chemical aging or reduced heat dissipation efficiency as the battery wears. While the changes are not dramatic, the consistency of this trend is noteworthy.
+
+Given that both discharge duration (explored in the previous section) and temperature show predictable behavior across cycles, it becomes relevant to examine whether they are statistically correlated. The relationship between discharging time and battery temperature forms the first analytical focus in the hypothesis testing phase. By investigating how increased temperature may shorten discharge duration, the analysis aims to determine if thermal effects contribute to diminished battery efficiency over time.
 
 ### 5. Battery Capacity over Discharging Cycles
 
-Battery capacity is the fundamental efficiency metric to monitor. The following raphs explicitly shows that over the discharging cycles, the battery capacity reduces, which indicates a degraadation in battery efficiency. This is critical for quantifying the effect of aging on battery performance.
+Battery capacity is one of the most fundamental indicators of performance and degradation in lithium-ion cells. It directly reflects how much charge the battery can store and deliver during each discharge cycle. As the battery ages, the active materials degrade, leading to a gradual and irreversible decline in usable capacity.
 
 ![image](https://github.com/user-attachments/assets/b9e9a69b-5154-4397-aa66-a5bb2e85328d)
 
 ![image](https://github.com/user-attachments/assets/e65c4477-07db-476f-ba73-c421433ba923)
 
+The graphs clearly demonstrate a consistent and progressive decrease in battery capacity across successive discharge cycles. This declining trend strongly indicates the expected degradation process, where the battery’s ability to hold charge diminishes as a function of use. Such a pattern confirms that the battery is undergoing normal aging, which is a key factor to track for predictive maintenance and life estimation.
+
+Given its steady and interpretable behavior, capacity is an ideal candidate for hypothesis testing in relation to temperature. Since thermal conditions can accelerate chemical degradation, investigating whether higher temperatures correlate with lower capacities is critical. This relationship serves as the second focal point in the hypothesis testing phase, complementing the analysis of discharge time and reinforcing the broader goal of understanding battery efficiency dynamics.
+
 ### 6. Average Battery Capacity across Temperature Bins
 
-To assess how the battery temperature influences the discharge capacity of the battery. Since high temperatures can accelerate chemical reactions and degradation, it's important to understand the thermal impact on energy output.
+This section examines how discharge capacity varies across different temperature bins, offering insights into the effect of thermal conditions on the battery's ability to store and deliver energy. Since elevated temperatures are known to accelerate degradation in lithium-ion cells, understanding whether capacity consistently drops in higher thermal environments is essential for assessing battery efficiency and lifespan under different operating conditions.
 
 ![image](https://github.com/user-attachments/assets/a12ab9c8-64bc-433e-b605-78b42f4b2f5d)
 
 ![image](https://github.com/user-attachments/assets/5f5adf79-0681-4269-8dee-1344a92f5a27)
 
-This relation is the second one to be examined in the hypothesis testing part since there is a visually consistent trend between both variables highlighting the importance of battery capacity in order to decide on the battery efficiency trend.
+The graphs display a clear and consistent inverse relationship between battery temperature and discharge capacity. As the average operating temperature increases, the corresponding battery capacity decreases. This trend supports the theoretical expectation that higher thermal stress degrades the internal structure of the battery, thereby reducing the amount of charge it can hold over time.
+
+Given this visually coherent trend, the relationship between temperature and battery capacity is selected as the second focal point in the hypothesis testing stage. Establishing a statistically significant connection between these variables helps confirm that thermal conditions play a measurable role in influencing efficiency metrics, further validating the role of temperature as a key factor in battery health diagnostics.
 
 ### 7. RUL across Temperature Bins
 
-To see whether RUL varies significantly with respect to operating temperature, the following graphs are used. Since the null hypothesis examines if there is a relation between battery temperature and remaining useful life (RUL), this graphs are important for the hypothesis testing part as well.
+This section investigates how the Remaining Useful Life (RUL) of the battery changes across different temperature bins. RUL is a critical metric in battery prognostics, as it reflects the number of future cycles the battery is expected to perform effectively before its capacity falls below a usable threshold. Because temperature can influence chemical stability, aging rate, and degradation patterns, understanding its relationship with RUL is essential for predictive maintenance and reliability analysis.
 
 ![image](https://github.com/user-attachments/assets/a84b53af-986d-444f-8cc8-2ad49570a138)
 
 ![image](https://github.com/user-attachments/assets/2c902fc7-1200-497d-a3e4-f3571d503442)
 
-The relation between battery temperature and remaining useful life (RUL) is the third and the last relation that will be studied in the hypothesis testing part.
+The visualizations show a clear trend: RUL tends to decrease as battery temperature increases. Batteries operating in lower temperature ranges exhibit longer projected lifespans, while those subjected to higher thermal conditions show reduced RUL values. This behavior aligns with the known impact of temperature on accelerating degradation mechanisms such as electrode breakdown and electrolyte decomposition.
+
+Given the strength and clarity of this relationship, the connection between battery temperature and RUL is chosen as the third and final relationship to be statistically tested in the hypothesis testing stage. This analysis complements the findings from discharge time and capacity trends, providing a holistic view of how temperature affects not just immediate performance, but also long-term battery sustainability.
 
 ### 8. Correlation Analysis on Discharge Results
 
-The ones that are highlighted as key metrics before is examined in a correlation heat map, showing a strong relation between the chosen metrics, opposing the temperature. This evaluation is important since after the hypothesis testing, the outcomes will be consistent with this visualization.
+To complement the individual analyses of discharge-related variables, a correlation heatmap was generated to examine the pairwise relationships between the key battery performance metrics: discharge time, discharge capacity, remaining useful life (RUL), and temperature. Correlation analysis provides a high-level overview of how variables co-vary, enabling quick identification of strong linear associations that may warrant further investigation.
 
 ![image](https://github.com/user-attachments/assets/f021c0eb-5b21-4ea7-bd4d-db14162126f5)
+
+The heatmap reveals that discharge time, capacity, and RUL are all strongly positively correlated with one another, indicating that as one degrades, the others tend to follow a similar downward trend. In contrast, temperature shows strong negative correlations with each of these efficiency metrics. This inverse relationship visually reinforces the hypothesis that elevated temperature is associated with accelerated degradation and reduced performance across multiple dimensions.
 
 ---
 
@@ -186,7 +208,7 @@ The ones that are highlighted as key metrics before is examined in a correlation
 
 ### 1. Relation of Battery Efficinecy with Battery Temperature
 
-Since in the data, there exists two metrics that shows the battery efficiency, there will be two parts that hypotesis tests are conducted on. At the end, the results will be evaluated to make a conclusion.
+Since in the data, there exists two metrics that shows the battery efficiency, there will be two parts that hypothesis tests are conducted on. At the end, the results will be evaluated to make a conclusion.
 
 ### a. Relation of Discharge Duration with Battery Temperature
 
@@ -430,11 +452,34 @@ Based on the analysis done in this step, in low temperatures, the remaining usef
 
 We do not have sufficient evidence to reject the null hypothesis. Statistical analyses conducted throughout the study consistently revealed a meaningful relationship between temperature and both efficiency indicators (discharge time and battery capacity) as well as remaining useful life (RUL). The presence of statistically significant correlations suggests that variations in temperature are associated with changes in battery performance metrics. As a result, we retain the null hypothesis that temperature has a relationship with the efficiency and remaining useful life of lithium-ion batteries. These findings support the theoretical expectation that thermal conditions influence battery degradation behavior.
 
+---
+
 ## ML Model Implementation
 
 ### Linear Regression Model to Predict Remaining Useful Life (RUL)
 
 **Objective:**
 
+The objective of the machine learning implementation in this study is to evaluate whether battery performance indicators, specifically battery capacity, discharge time, and remaining useful life (RUL), can be used to accurately estimate battery temperature. A Linear Regression model was employed for this purpose, serving as a simple yet interpretable baseline to test the strength of this relationship.
 
+**Results:**
 
+**RMSE (Root Mean Squared Error):** 0.25, indicating a very low average deviation of the predicted temperature values from the actual temperature readings, measured in degrees Celsius.
+
+**R² Score:** 0.88, which suggests that 88% of the variance in the actual battery temperature can be explained by the linear relationship with discharge capacity, discharge time, and RUL.
+
+These metrics indicate that the linear regression model performs strongly, capturing the underlying patterns between battery efficiency indicators and thermal behavior with high accuracy. The low RMSE and high R² demonstrate that the model provides reliable temperature estimates across the observed range.
+
+#### Scatter Plot of Actual vs. Predicted Battery Temperature
+
+The scatter plot illustrates the relationship between the actual and predicted battery temperature values produced by the linear regression model. Each point represents a test observation, with the horizontal axis corresponding to the true temperature and the vertical axis indicating the model’s prediction. Most points are closely clustered around the red dashed diagonal line, which represents perfect predictions where actual and predicted values are equal. This visual alignment confirms a strong positive correlation between the predicted and true temperatures, supporting the numerical R² score of 0.88. Only a few minor deviations from the diagonal suggest small prediction errors, but overall, the plot demonstrates that the model performs well in capturing the thermal behavior of the battery based on battery capacity, discharge duration, and remaining useful life.
+
+![image](https://github.com/user-attachments/assets/2442ced3-4009-4fa3-8aa3-fe71a14b3f68)
+
+#### Confusion Matrix for Binned Temperature Prediction
+
+The confusion matrix provides a categorical evaluation of the model’s temperature prediction performance by grouping both actual and predicted values into temperature bins: 31.5–32 °C, 32–32.5 °C, 32.5–33 °C, 33–33.5 °C, and 33.5+ °C. The majority of predictions are concentrated along the diagonal, indicating that the model generally predicts the correct temperature range. For instance, the bins 32–32.5 °C and 33.5+ °C show relatively strong alignment between actual and predicted values, with 7 and 6 correct predictions, respectively. However, some off-diagonal values reveal instances where the model slightly overestimated or underestimated the temperature range—most notably in the 32–32.5 °C actual bin, where 4 predictions were made in the adjacent 32.5–33 °C range. These misclassifications are minor and occur primarily between neighboring bins, suggesting the model captures the general trend well but exhibits small deviations in boundary regions. Overall, the confusion matrix supports the conclusion that the model provides a reasonable approximation of temperature when interpreted in a discretized context.
+
+![image](https://github.com/user-attachments/assets/58b5dc68-9af5-4ed4-85dd-2685405f8b38)
+
+---
