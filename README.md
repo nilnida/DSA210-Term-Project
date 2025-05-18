@@ -12,6 +12,7 @@ In this project, I will investigate the effect of temperature on battery efficie
 - [Visualization Findings](#visualization-findings)
 - [Hypothesis Testing](#hypothesis-testing)
 - [ML Model Implementation](#ml-model-implementation)
+- [Limitations and Future Work](#limitations-and-future-work)
 
 ---
 
@@ -224,6 +225,8 @@ Since in the data, there exists two metrics that shows the battery efficiency, t
 - P-Value: 1.0388933158394018e-32
 - **Reject the null hypothesis**, proving that there is a significant linear correlation between battery temperature and discharge duration.
 
+The negative correlation coefficient of approximately -0.76 indicates a strong inverse linear relationship between battery temperature and discharge duration. In practical terms, this means that as the battery operates at higher temperatures, the time it takes to discharge tends to decrease significantly. This trend is consistent with the understanding that elevated temperatures accelerate degradation processes, leading to a faster loss of usable charge. The extremely low p-value (< 0.001) confirms that this result is statistically significant, providing strong evidence against the null hypothesis. Therefore, this analysis supports the broader hypothesis that temperature adversely affects battery efficiency, beginning with its impact on discharge duration.
+
 ![image](https://github.com/user-attachments/assets/175fad49-ffd3-45cf-87ff-6760dd4ad28e)
 
 #### Spearman Correlation Test for Discharge Duration in Relation with Temperature
@@ -237,6 +240,8 @@ Since in the data, there exists two metrics that shows the battery efficiency, t
 - Correlation Coefficient (ρ): -0.765188979606299
 - P-Value: 1.4419679611288852e-33
 - **Reject the null hypothesis**, proving that there is a strong monotonic relation between battery temperature and discharge duration.
+
+The Spearman correlation coefficient of approximately -0.77 indicates a strong negative monotonic relationship between battery temperature and discharge duration. This means that as temperature increases, discharge duration consistently decreases, even if the relationship is not strictly linear. The very small p-value confirms that this result is statistically significant and highly unlikely to have occurred by chance. Unlike Pearson correlation, which captures only linear relationships, Spearman’s method validates that the overall trend between temperature and discharge time is both strong and directionally consistent. This further reinforces the conclusion that higher operating temperatures are associated with decreased battery efficiency, making discharge duration a reliable metric for examining thermal effects on battery performance.
 
 ![image](https://github.com/user-attachments/assets/aa7f40e6-108d-4250-aeeb-a8e5e547fee4)
 
@@ -252,6 +257,8 @@ Since in the data, there exists two metrics that shows the battery efficiency, t
 - P-Value: 1.1254142603243133e-42
 - **Reject the null hypothesis**, proving that the mean discharge duration is different between the groups.
 
+The two-tailed t-test evaluates whether there is a statistically significant difference in the mean discharge duration between low-temperature and high-temperature groups. The extremely high t-statistic (19.35) and the correspondingly low p-value (close to zero) provide strong evidence that the means are not equal. This result leads to the rejection of the null hypothesis and confirms that temperature has a substantial impact on how long the battery can sustain discharge. In particular, the significant difference in means implies that battery performance, measured through discharge duration, varies meaningfully with thermal conditions. This supports the hypothesis that temperature is a key factor influencing battery efficiency.
+
 #### One-Tailed T-Test for Discharge Duration in Relation with Temperature Groups
 
 **Null Hypothesis (H₀):** The mean discharge duration in the low temperature group is less than or equal to the high temperature group.s.
@@ -263,6 +270,8 @@ Since in the data, there exists two metrics that shows the battery efficiency, t
 - T-Statistic: 19.345736701918707
 - One-Tailed P-Value: 5.627071301621567e-43
 - **Reject the null hypothesis**, proving that the mean discharge duration is greater in the low temperature group.
+
+The one-tailed t-test was conducted to specifically test whether batteries operating at lower temperatures have longer discharge durations compared to those at higher temperatures. The very large t-statistic (19.35) and the extremely small one-tailed p-value (< 0.001) provide strong statistical evidence to reject the null hypothesis. This confirms that the mean discharge duration in the low temperature group is significantly greater than in the high temperature group. This result aligns with theoretical expectations, as batteries tend to perform more efficiently and retain energy longer under cooler operating conditions. The finding further strengthens the argument that higher temperatures negatively impact battery efficiency by shortening discharge time.
 
 ![image](https://github.com/user-attachments/assets/1c740229-a5d3-4092-8647-e6ba42a3e27b)
 
@@ -280,15 +289,17 @@ Since in the data, there exists two metrics that shows the battery efficiency, t
 - P-Value = 2.552793322562453e-22
 - **Reject the null hypothesis**, proving that at least one group mean discharge duration is different than the others.
 
+The one-way ANOVA test was used to assess whether the mean discharge durations differ significantly across multiple temperature bins. The resulting F-statistic of approximately 68.23, combined with an extremely small p-value, provides strong evidence to reject the null hypothesis. This indicates that at least one temperature group exhibits a statistically different mean discharge duration compared to the others. In other words, the battery’s ability to sustain discharge varies depending on the temperature range. This result reinforces the conclusions drawn from the previous correlation and t-test analyses, confirming that temperature is a significant factor affecting discharge efficiency and validating its inclusion in the broader hypothesis framework of this project.
+
 ![image](https://github.com/user-attachments/assets/e9304850-f407-486c-bcba-cebd34c01ddb)
 
 ![image](https://github.com/user-attachments/assets/deb82f12-d562-4f6a-a06e-c1357070cf67)
 
-When all of the steps in the analysis of the battery discharge duration relation with battery temperature are examined, one can say that there is a strong negative relation that shows in the lower temperatures, the battery discharge duration is higher and while the temperature rises, the battery discharge duration lowers. This conclusion strenghtens out null hypothesis which is:
+Considering all the results from the analysis of the relationship between battery discharge duration and temperature, there is strong evidence of a significant negative correlation. The findings consistently show that at lower temperatures, the battery exhibits longer discharge durations, whereas higher temperatures lead to shorter discharge periods. This outcome supports the null hypothesis, which states:
 
 **Null Hypothesis (H₀)**: Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
 
-To make sure, one must continue with the other steps of the hypothesis testing.
+To fully validate this hypothesis, the analysis must proceed with the remaining steps of hypothesis testing, particularly focusing on battery capacity and RUL in relation to temperature.
 
 ### b. Relation of Battery Capacity with Battery Temperature
 
@@ -304,6 +315,8 @@ To make sure, one must continue with the other steps of the hypothesis testing.
 - P-Value: 2.8106843882059685e-40
 - **Reject the null hypothesis**, proving that there is a significant linear correlation between battery temperature and battery capacity.
 
+The Pearson correlation coefficient of approximately -0.81 indicates a strong negative linear relationship between battery temperature and discharge capacity. This means that as temperature increases, the battery’s ability to store and deliver charge decreases significantly. The extremely low p-value confirms the statistical significance of this result, providing clear evidence to reject the null hypothesis. These findings suggest that higher operating temperatures contribute to faster capacity degradation, reinforcing the understanding that thermal stress negatively impacts battery efficiency. This result also strengthens the case for temperature being a critical factor in evaluating overall battery performance and longevity.
+
 ![image](https://github.com/user-attachments/assets/4a70c6d7-a2b5-48a8-945a-4094cfbe5ce1)
 
 #### Spearman Correlation Test for Capacity in Relation with Temperature
@@ -317,6 +330,8 @@ To make sure, one must continue with the other steps of the hypothesis testing.
 - Correlation Coefficient (ρ): -0.7657508313887864
 - P-Value: 1.2127188259834856e-33
 - **Reject the null hypothesis**, proving that there is a strong monotonic relation between battery temperature and battery capacity.
+
+The Spearman correlation coefficient of approximately -0.77 indicates a strong negative monotonic relationship between battery temperature and capacity. This means that as temperature increases, battery capacity consistently declines, even if the rate of change is not strictly linear. The extremely low p-value confirms that this result is statistically significant. This test provides further evidence that thermal conditions have a considerable impact on battery efficiency, supporting the hypothesis that capacity diminishes with rising temperature levels.
 
 ![image](https://github.com/user-attachments/assets/a9da9746-28a7-4df7-8a16-b1d23ee08a75)
 
@@ -332,6 +347,8 @@ To make sure, one must continue with the other steps of the hypothesis testing.
 - P-Value: 1.11288621468798e-50
 - **Reject the null hypothesis**, proving that the mean battery capacity is different between the groups.
 
+The two-tailed t-test evaluates whether there is a statistically significant difference in the mean battery capacity between low-temperature and high-temperature groups. The extremely high t-statistic (21.84) and the near-zero p-value provide strong evidence that the group means differ significantly. This result leads to the rejection of the null hypothesis and confirms that battery capacity is affected by temperature variations. Specifically, the significant drop in capacity under higher temperatures indicates that thermal conditions play a meaningful role in accelerating capacity degradation. This finding supports the hypothesis that temperature is a critical factor in determining battery efficiency and health.
+
 #### One-Tailed T-Test for Capacity in Relation with Temperature Groups
 
 **Null Hypothesis (H₀):** The mean battery capacity in the low temperature group is less than or equal to the high temperature group.
@@ -343,6 +360,8 @@ To make sure, one must continue with the other steps of the hypothesis testing.
 - T-Statistic: 21.839623575172133
 - One-Tailed P-Value: 5.5644310734399e-51
 - **Reject the null hypothesis**, proving that the mean battery capacity is greater in the low temperature group.
+
+The one-tailed t-test assesses whether the mean battery capacity is significantly greater in the low-temperature group compared to the high-temperature group. The extremely high t-statistic (21.84) and the exceptionally small p-value provide compelling evidence to reject the null hypothesis. This result confirms that batteries operating under cooler conditions retain significantly more capacity than those exposed to higher temperatures. The finding reinforces the understanding that elevated temperatures accelerate degradation, leading to a measurable reduction in capacity. It further supports the hypothesis that thermal conditions are a major determinant of battery performance and longevity.
 
 ![image](https://github.com/user-attachments/assets/3c76ac41-5c73-47e7-898b-1717ad3b433d)
 
@@ -360,11 +379,13 @@ To make sure, one must continue with the other steps of the hypothesis testing.
 - P-Value = 6.727485891787589e-28
 - **Reject the null hypothesis**, proving that at least one group mean charge capacity is different than the others.
 
+The one-way ANOVA test determines whether the mean battery capacity differs significantly across multiple temperature bins. The very high F-statistic (93.62) and the extremely small p-value provide strong statistical evidence to reject the null hypothesis. This confirms that at least one of the temperature groups has a mean capacity that differs from the others. The result highlights that battery capacity is not uniformly distributed across temperature ranges, indicating that temperature plays a significant role in shaping how effectively the battery retains and delivers energy. This finding aligns with previous results and further supports the hypothesis that thermal conditions impact battery efficiency.
+
 ![image](https://github.com/user-attachments/assets/617644aa-e5fd-4df3-9902-6ee8c182de7c)
 
 ![image](https://github.com/user-attachments/assets/f1e80217-ddd7-4232-9d2f-8451a7a13618)
 
-When all the steps in this part are evaluated, it is obvious that in the lower temoeratures, the battery capacity is higher, while the temperature rises, the battery capacity starts to degrade resulting in a lower battery efficiency. Combined with the discharge duration tests, it is possible that there is a negative relation between battery temperature and battery efficiency, concluding the first part of the null hypothesis.
+When all the findings in this section are considered, it becomes clear that battery capacity is significantly higher at lower temperatures, while increasing temperatures lead to noticeable capacity degradation. This decline directly contributes to reduced battery efficiency. When combined with the earlier discharge duration results, the evidence points toward a consistent negative relationship between battery temperature and overall efficiency. These outcomes collectively support the first component of the null hypothesis:
 
 **Null Hypothesis (H₀)**: Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
 
@@ -384,6 +405,8 @@ Only remaining part to complete the tests is to examine the relation of the rema
 - P-Value: 5.831299114433377e-37
 - **Reject the null hypothesis**, proving that there is a significant linear correlation between battery temperature and remaining useful life (RUL).
 
+The Pearson correlation test reveals a strong negative linear relationship between battery temperature and remaining useful life (RUL), as indicated by a correlation coefficient of approximately -0.79. The extremely low p-value confirms that this correlation is statistically significant, allowing us to confidently reject the null hypothesis. This result demonstrates that as temperature increases, RUL tends to decrease, suggesting that batteries exposed to higher thermal conditions experience faster degradation and shortened operational lifespan. This finding is consistent with previous efficiency metrics and reinforces the broader hypothesis that temperature significantly influences both performance and durability of lithium-ion batteries.
+
 ![image](https://github.com/user-attachments/assets/1696c3e7-ae6b-4a46-8467-c06fa8632c11)
 
 #### Spearman Correlation Test for RUL in Relation with Temperature
@@ -397,6 +420,8 @@ Only remaining part to complete the tests is to examine the relation of the rema
 - Correlation Coefficient (ρ): -0.7830223452328641
 - P-Value: 1.2004211657701526e-35
 - **Reject the null hypothesis**, proving that there is a strong monotonic relation between battery temperature and remaining useful life (RUL).
+
+The Spearman correlation test confirms a strong negative monotonic relationship between battery temperature and remaining useful life (RUL), with a coefficient of approximately -0.78. This result indicates that RUL consistently decreases as temperature increases, regardless of whether the relationship is strictly linear. The extremely low p-value further supports the statistical significance of this finding, allowing us to reject the null hypothesis. This reinforces the conclusion that thermal stress plays a critical role in accelerating battery aging and reducing its usable lifespan.
 
 ![image](https://github.com/user-attachments/assets/35fda465-c367-45a1-9120-302a47dabea9)
 
@@ -412,6 +437,8 @@ Only remaining part to complete the tests is to examine the relation of the rema
 - P-Value: 5.621172405518512e-47
 - **Reject the null hypothesis**, proving that the mean remaining useful life (RUL) is different between the groups.
 
+The two-tailed t-test assesses whether there is a statistically significant difference in the mean remaining useful life (RUL) between batteries operating in low and high temperature conditions. The very high t-statistic (20.58) and the near-zero p-value provide strong evidence to reject the null hypothesis. This confirms that RUL varies significantly across temperature groups. Specifically, the result suggests that batteries subjected to higher temperatures tend to have a reduced lifespan compared to those operating at lower temperatures. This finding further supports the hypothesis that thermal conditions are a key driver of battery aging and durability.
+
 #### One-Tailed T-Test for Remaining useful Life (RUL) in Relation with Temperature
 
 **Null Hypothesis (H₀):** The mean RUL in the low temperature group is less than or equal to the high temperature group.
@@ -423,6 +450,8 @@ Only remaining part to complete the tests is to examine the relation of the rema
 - T-Statistic: 20.57740189874722
 - One-Tailed P-Value: 2.810586202759256e-47
 - **Reject the null hypothesis**, proving that the mean RUL is greater in the low temperature group.
+
+The one-tailed t-test was conducted to determine whether the mean remaining useful life (RUL) is significantly greater in the low-temperature group compared to the high-temperature group. The large t-statistic (20.58) and extremely small one-tailed p-value provide strong statistical evidence to reject the null hypothesis. This result confirms that batteries operating under lower temperature conditions retain a significantly longer remaining lifespan. It further emphasizes the detrimental impact of higher temperatures on battery longevity and aligns with the overall conclusion that cooler thermal environments are more favorable for extending battery life.
 
 ![image](https://github.com/user-attachments/assets/d57461d4-61dd-4687-b557-02f5f84f6556)
 
@@ -440,11 +469,13 @@ Only remaining part to complete the tests is to examine the relation of the rema
 - P-Value = 2.598633162882089e-25
 - **Reject the null hypothesis**, proving that at least one group mean RUL is different than the others.
 
+The one-way ANOVA test evaluates whether the mean remaining useful life (RUL) differs significantly across multiple temperature bins. The high F-statistic (81.74) and the extremely low p-value provide strong evidence to reject the null hypothesis. This result indicates that at least one temperature group exhibits a significantly different mean RUL, confirming that RUL is not uniformly distributed across thermal conditions. These findings reinforce the conclusion that temperature has a measurable impact on battery longevity and further validate the inclusion of RUL as a critical efficiency metric in evaluating thermal effects on battery performance.
+
 ![image](https://github.com/user-attachments/assets/2ba6414f-4c34-4757-ba0b-854c38554975)
 
 ![image](https://github.com/user-attachments/assets/9cb8abbc-a271-4b55-8d61-a939f4968535)
 
-Based on the analysis done in this step, in low temperatures, the remaining useful life is higher. In the meantime, in high temperatures, the remaining useful life is lower proving that there is a negative relationship between the two variables. This step concludes our hypothesis testing stage.
+Based on the results obtained in this step, it is evident that batteries operating at lower temperatures exhibit a higher remaining useful life (RUL), while those subjected to higher temperatures show a marked decrease in RUL. This confirms the presence of a strong negative relationship between temperature and battery longevity. The consistency across all statistical tests reinforces the reliability of this finding. With this final analysis, the hypothesis testing stage is concluded, having demonstrated that temperature significantly influences both efficiency and lifespan-related metrics of lithium-ion batteries.
 
 **Null Hypothesis (H₀):** Temperature has a relation with the efficiency and remaining useful life of lithium-ion batteries.
 
@@ -483,3 +514,35 @@ The confusion matrix provides a categorical evaluation of the model’s temperat
 ![image](https://github.com/user-attachments/assets/58b5dc68-9af5-4ed4-85dd-2685405f8b38)
 
 ---
+
+## Limitations and Future Work
+
+### Limitations
+
+While this project provides a thorough analysis of the relationship between temperature and key performance indicators of lithium-ion batteries, several limitations should be acknowledged:
+
+**Single Dataset Focus:** Although supported by supplementary datasets, the analysis primarily relied on a single battery dataset (B0005.mat). Broader generalizability would benefit from applying the same methodology across diverse datasets, chemistries, and operational scenarios.
+
+**Simplified Feature Set:** The machine learning model used only three predictor variables (battery capacity, discharge time, and remaining useful life). Including more detailed electrochemical or impedance-related features could enhance the predictive power.
+
+**Model Complexity:** A linear regression model was selected for its interpretability, but more complex models such as neural networks could uncover nonlinear interactions and improve prediction accuracy.
+
+**No Real-Time or Deployed Validation:** The study did not include real-world battery deployments or real-time sensor validation. Results are based solely on offline historical datasets.
+
+**Temperature Binning Assumptions:** In classification evaluations, temperature bins were chosen using fixed or quantile-based intervals. This approach may oversimplify the continuous nature of thermal influence.
+
+### Future Work
+
+- Extend the analysis to a broader set of lithium-ion battery datasets to validate the consistency of the findings across different chemistries and usage patterns. This would help ensure that the observed temperature-performance relationships are not specific to a particular dataset or battery configuration.
+
+- Explore advanced machine learning models, including tree-based regressors or deep learning approaches, to better capture nonlinearities in battery behavior. These models may uncover complex interactions between variables and improve predictive accuracy, especially in edge cases or under extreme thermal conditions.
+
+- Incorporate additional operational features (internal resistance, impedance evolution etc.) for more robust predictive modeling. Expanding the feature space could provide deeper insights into battery health and enable more comprehensive assessments of temperature influence.
+
+- Develop a real-time battery monitoring framework that applies the statistical and ML methods in an online setting for predictive maintenance. Implementing live diagnostics would make these techniques applicable in practical battery management systems and support proactive decision-making.
+
+- Conduct a sensitivity analysis to understand how changes in bin definitions or feature engineering choices impact model outputs and statistical conclusions. This would help quantify the robustness of the results and guide best practices for preprocessing and model interpretation in future studies.
+
+- Apply uncertainty quantification methods, such as Bayesian regression or dropout-based uncertainty estimation, to better understand the confidence level of model predictions and support risk-aware decision-making.
+
+- Explore the integration of these models into real-world Battery Management Systems (BMS) to enable continuous health monitoring, anomaly detection, and predictive control in live environments.
